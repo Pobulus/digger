@@ -33,7 +33,7 @@ long unsigned int total_income;
 unsigned int money = 10; 
 int fovX;
 char tool[7] = "⛏️";
-char person[8] = "🯅️";//🯆
+char person[8] = "🧍 ";//🯆
 
 int fovY;
 
@@ -121,7 +121,7 @@ void upgrades(){
 	}
 }
 void interact(){
-	strcpy(person, "🯆");
+	strcpy(person, "🧍");
 	if(posY==0){
 		if(posX>RESTAURANT-2&&posX<RESTAURANT+1){
 			strcpy(info, "You couldn't afford food");
@@ -196,23 +196,23 @@ void hud(){
                 case 3:
 					attron(COLOR_PAIR(30));
 					
-					printw("🮕🮕");
+					printw("🌟 ");
 					
 					break;
 				case 4:
 					attron(COLOR_PAIR(60));
 					
-					printw("🭮🭬");
+					printw("💎 ");
 					break;
 				case 5:
 					attron(COLOR_PAIR(10));
 					
-					printw("🭦🭛");
+					printw("🏮 ");
 					break;
 				case 6:
 					attron(COLOR_PAIR(20));
 					
-					printw("▗▘");
+					printw("🔲");
 					break;
 				case 8:
 					attron(COLOR_PAIR(40));
@@ -245,23 +245,23 @@ void death(){
 bool check(int x, int y){
 	strcpy(info, "");
 	if(y==0){
-		strcpy(tool, " ");
+		//strcpy(tool, " ");
 		return true;
 		}
 	if(energy > 0){
 		if(map[x][y]==0){
-			strcpy(tool, " ️");
+			//strcpy(tool, " ️");
 			return true;
 		}
 		else if (map[x][y]==1){
-			strcpy(tool, "⛏️");
+			//strcpy(tool, "⛏️");
 			energy--;
 			this_thread::sleep_for(chrono::milliseconds(200/(lvl_pic+1)));
 			map[x][y]--;
 			return true;
 		}
 		else if (map[x][y]==2){
-			strcpy(tool, "⛏️");
+			//strcpy(tool, "⛏️");
 			
 			
 			if(lvl_pic){
@@ -274,7 +274,7 @@ bool check(int x, int y){
 			return false;
 			}
 		else if (map[x][y]==-1){
-			strcpy(tool, "⛏️");
+			//strcpy(tool, "⛏️");
 			if(lvl_pic>1){
 				this_thread::sleep_for(chrono::milliseconds(200/(lvl_pic+1)));
 				energy--;
@@ -287,14 +287,14 @@ bool check(int x, int y){
 			}
 		else if(capacity>0){
 			if (map[x][y]==3){
-					strcpy(tool, "⛏️");
+					//strcpy(tool, "⛏️");
 					map[x][y] = 1;
 					energy--;
 					inventory[3]++;
 					capacity--;
 					return false;
 			}else if (map[x][y]==4){
-					strcpy(tool, "⛏️");
+					//strcpy(tool, "⛏️");
 					map[x][y] = 2;
 					energy--;
 					inventory[4]++;
@@ -302,7 +302,7 @@ bool check(int x, int y){
 				return false;
 			}	
 			else if (map[x][y]==5){
-					strcpy(tool, "⛏️");
+					//strcpy(tool, "⛏️");
 					map[x][y] = -1;
 					if(lvl_pic){
 					energy--;
@@ -311,7 +311,7 @@ bool check(int x, int y){
 				}else strcpy(info, "You picaxe is too weak");
 			}	
 			else if (map[x][y]==6){
-					strcpy(tool, "⛏️");
+					//strcpy(tool, "⛏️");
 					
 					if(lvl_pic>1){
 						map[x][y] = -1;
@@ -321,7 +321,7 @@ bool check(int x, int y){
 					}else strcpy(info, "You picaxe is too weak");
 			}	
 			else if (map[x][y]==8){
-					strcpy(tool, "⛏️");
+					//strcpy(tool, "⛏️");
 					
 					if(lvl_pic>3){
 						map[x][y] = -1;
@@ -331,7 +331,7 @@ bool check(int x, int y){
 					}else strcpy(info, "You picaxe is too weak");
 			}	
 			else if (map[x][y]==7){
-					strcpy(tool, "⛏️");
+					//strcpy(tool, "⛏️");
 					map[x][y] = 1;
 					
 					energy--;
@@ -346,7 +346,7 @@ bool check(int x, int y){
 		return false;
 	}else{
 		if(map[x][y]==0){
-			strcpy(tool, "");
+			//strcpy(tool, "");
 			if(rand()%(1+lvl_prot)==0){
 				health-=(rand()%4+1);
 				if(health<1){
@@ -394,26 +394,26 @@ int display(int x, int y){
 
 				case 3:
 					attron(COLOR_PAIR(37));
-					mvprintw(j, i*2, "🮕🮕");
+					mvprintw(j, i*2, "🌟 ");
 					break;
 
 				case 4:
 					attron(COLOR_PAIR(67));
-					mvprintw(j, i*2, "🭮🭬");
+					mvprintw(j, i*2, "💎 ");
 					break;
 
 				case 5:
 					attron(COLOR_PAIR(17));
-					mvprintw(j, i*2, "🭦🭛");
+					mvprintw(j, i*2, "🏮 ");
 					break;
 
 				case 6:
 					attron(COLOR_PAIR(27));
-					mvprintw(j, i*2, "▗▘");
+					mvprintw(j, i*2, "🔲 ");
 					break;
 				case 8:
 					attron(COLOR_PAIR(47));
-					mvprintw(j, i*2, "✨");
+					mvprintw(j, i*2, "✨ ");
 					break;
 				case 7:
 					attron(COLOR_PAIR(37));
@@ -461,11 +461,11 @@ int display(int x, int y){
 					//if(y<fovY&&x>520-max_x&&x<520+max_x)mvprintw(fovY-y, fovX-fovX%2-x+520, " 🏛");
 				}
 			if(y==0){ 
-				attron(COLOR_PAIR(46));
-				if(x == RESTAURANT||x == RESTAURANT-1||x == BANK||x == BANK-1||x == PHARM||x == PHARM-1||x == STORE||x == STORE-1)attron(COLOR_PAIR(47));
+				attron(COLOR_PAIR(16));
+				if(x == RESTAURANT||x == RESTAURANT-1||x == BANK||x == BANK-1||x == PHARM||x == PHARM-1||x == STORE||x == STORE-1)attron(COLOR_PAIR(17));
 				}
-			else attron(COLOR_PAIR(40));
-			mvprintw(fovY, fovX-fovX%2, "%s%s️", tool, person);	
+			else attron(COLOR_PAIR(10));
+			mvprintw(fovY, fovX-fovX%2, "%s️", person);	
 			hud();
 		}
 	}
@@ -518,6 +518,8 @@ int main(){
 	init_pair(67, COLOR_CYAN, COLOR_WHITE);//green
 	init_pair(77, COLOR_WHITE, COLOR_WHITE);//white
 	init_pair(66, COLOR_CYAN, COLOR_CYAN);//green
+	init_pair(16, COLOR_RED, COLOR_CYAN);//green
+	
 	
 	init_pair(7, COLOR_BLACK, COLOR_WHITE);//white
 	init_pair(6, COLOR_BLACK, COLOR_CYAN);//green
@@ -566,8 +568,8 @@ int main(){
 		
 		display(posX, posY);
 		int c = getch();
-		//🯇🯈🯅
-		if((posX+posY)%2)strcpy(person, "🯇");else strcpy(person, "🯈");
+		//🚶 🧍  
+		strcpy(person, "🧍");
 		switch(c){
 			case KEY_DOWN:
 				if(posY<map.size()-1&&check(posX, posY+1))
