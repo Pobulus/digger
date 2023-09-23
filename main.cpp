@@ -50,7 +50,7 @@ void upgrades(){
 	while(shop_wait){
 		mvprintw(0,0, "Your account: %d$       ", money);
 		mvprintw(1,0, "Upgrade:");
-		mvprintw(2,0, "1. ⛏️ picaxe, level: %d -> %d$", lvl_pic, 1500+((lvl_pic+1)*(lvl_pic+1)*500));
+		mvprintw(2,0, "1. ⛏️ pickaxe, level: %d -> %d$", lvl_pic, 1500+((lvl_pic+1)*(lvl_pic+1)*500));
 		mvprintw(3,0, "2. 🛡️ protection, level: %d -> %d$", lvl_prot, 300+(lvl_prot*100));
 		mvprintw(4,0, "3. 📦️ storage, level: %d -> %d$", max_capacity, 100*max_capacity);
 		mvprintw(5,0, "4. ⚡ energy, level: %d ->%d$", max_energy, 500+max_energy*10);
@@ -270,7 +270,7 @@ bool check(int x, int y){
 				if (lvl_pic==1)map[x][y]=1;
 				else {map[x][y]=0;return true;}
 			}else
-				strcpy(info, "You picaxe is too weak");
+				strcpy(info, "You pickaxe is too weak");
 			return false;
 			}
 		else if (map[x][y]==-1){
@@ -282,7 +282,7 @@ bool check(int x, int y){
 				else if(lvl_pic==3)map[x][y]=1;
 				else {map[x][y]=0;return true;}
 			}else
-				strcpy(info, "You picaxe is too weak");
+				strcpy(info, "You pickaxe is too weak");
 			return false;
 			}
 		else if(capacity>0){
@@ -308,7 +308,7 @@ bool check(int x, int y){
 					energy--;
 					inventory[5]++;
 					capacity--;
-				}else strcpy(info, "You picaxe is too weak");
+				}else strcpy(info, "You pickaxe is too weak");
 			}	
 			else if (map[x][y]==6){
 					//strcpy(tool, "⛏️");
@@ -318,7 +318,7 @@ bool check(int x, int y){
 						energy--;
 						inventory[6]++;
 						capacity--;
-					}else strcpy(info, "You picaxe is too weak");
+					}else strcpy(info, "You pickaxe is too weak");
 			}	
 			else if (map[x][y]==8){
 					//strcpy(tool, "⛏️");
@@ -328,7 +328,7 @@ bool check(int x, int y){
 						energy--;
 						inventory[8]++;
 						capacity--;
-					}else strcpy(info, "You picaxe is too weak");
+					}else strcpy(info, "You pickaxe is too weak");
 			}	
 			else if (map[x][y]==7){
 					//strcpy(tool, "⛏️");
