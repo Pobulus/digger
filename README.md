@@ -1,5 +1,5 @@
 # digger
-`ncursesw` based game about digging
+`ncursesw` based game about digging with emojis
 
 ![digger](https://github.com/Pobulus/digger/assets/32367046/8f04e347-742e-4a00-8444-8bac75566a41)
 
