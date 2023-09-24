@@ -50,13 +50,13 @@ void upgrades(){
 	while(shop_wait){
 		mvprintw(0,0, "Your account: %d$       ", money);
 		mvprintw(1,0, "Upgrade:");
-		mvprintw(2,0, "1. ⛏️ pickaxe, level: %d -> %d$", lvl_pic, 1500+((lvl_pic+1)*(lvl_pic+1)*500));
+		mvprintw(2,0, "1. ⛏️  pickaxe, level: %d -> %d$", lvl_pic, 1500+((lvl_pic+1)*(lvl_pic+1)*500));
 		mvprintw(3,0, "2. 👷 protection, level: %d -> %d$", lvl_prot, 300+(lvl_prot*100));
 		mvprintw(4,0, "3. 🎒 storage, level: %d -> %d$", max_capacity, 100*max_capacity);
 		mvprintw(5,0, "4. ⚡ energy, level: %d ->%d$", max_energy, 500+max_energy*10);
 		mvprintw(7,0, "Buy:");
 		mvprintw(8,0, "5. ☕ coffe, owned: %d -> %d$", inventory[0], price_meal*50);
-		mvprintw(9,0, "6. ✴️ warp star, owned: %d -> %d$", inventory[1], 200000);
+		mvprintw(9,0, "6. ✴️  warp star, owned: %d -> %d$", inventory[1], 200000);
 		
 		
 		
