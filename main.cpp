@@ -51,8 +51,8 @@ void upgrades(){
 		mvprintw(0,0, "Your account: %d$       ", money);
 		mvprintw(1,0, "Upgrade:");
 		mvprintw(2,0, "1. ⛏️ pickaxe, level: %d -> %d$", lvl_pic, 1500+((lvl_pic+1)*(lvl_pic+1)*500));
-		mvprintw(3,0, "2. 🛡️ protection, level: %d -> %d$", lvl_prot, 300+(lvl_prot*100));
-		mvprintw(4,0, "3. 📦️ storage, level: %d -> %d$", max_capacity, 100*max_capacity);
+		mvprintw(3,0, "2. 👷 protection, level: %d -> %d$", lvl_prot, 300+(lvl_prot*100));
+		mvprintw(4,0, "3. 🎒 storage, level: %d -> %d$", max_capacity, 100*max_capacity);
 		mvprintw(5,0, "4. ⚡ energy, level: %d ->%d$", max_energy, 500+max_energy*10);
 		mvprintw(7,0, "Buy:");
 		mvprintw(8,0, "5. ☕ coffe, owned: %d -> %d$", inventory[0], price_meal*50);
@@ -586,19 +586,20 @@ int main(){
 				if(posX<map[0].size()-1&&check(posX+1, posY))posX++;
 				break;
 			
-			case 410:
-			case 112://p;
+			case 410: // resize
+			case 112://p 
 				getmaxyx(stdscr, max_y, max_x);
 				fovX = max_x/2;
 				fovY = max_y/2;
 				break;
-			case 49://h
+			case 49:// 1 coffee
 				if(inventory[0]){
 					inventory[0]--;
-					energy+=50;
+					energy+=max_energy/2;
+          health-=10;
 				}
 				break;
-			case 50://h
+			case 50:// 2 warp star
 				if(inventory[1]){
 					inventory[1]--;
 					posX = 500;
@@ -609,10 +610,10 @@ int main(){
 				energy = max_energy;
 				money += 1000;
 				break;
-			case 120://x
+			case 120://x 
 				death();
 				break;
-			case 119://w Restauran
+			case 119://w RESTAURANT
 				if(posY==0)posX=RESTAURANT;
 				break;
 			case 101://e BANK
@@ -627,17 +628,20 @@ int main(){
 			case 32://space
 				interact();
 				break;
+      case 27: //esc
+        mainloop = false;
+        break;
 			default:
-				mvprintw(0,0, "%d    ", c);
+				// mvprintw(0,0, "%d    ", c);
 				break;
 		}
 	}
-	display(posX+1, posY);
-	getch();
-	display(posX, posY);
-	getch();
-	display(posX, posY+1);
-	getch();
+	// display(posX+1, posY);
+	// getch();
+	// display(posX, posY);
+	// getch();
+	// display(posX, posY+1);
+	// getch();
 	endwin();
 	return 0;
 	}
