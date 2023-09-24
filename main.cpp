@@ -338,7 +338,7 @@ bool check(int x, int y){
 					inventory[2]+=posY;
 					inventory[7]++;
 					capacity--;
-					strcpy(info, "You found an artifact!");
+					strcpy(info, "You've found an artifact!");
 			}	
 			
 			return false;
